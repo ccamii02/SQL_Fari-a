@@ -109,6 +109,7 @@ INSERT IGNORE INTO detalle_ventas_perifericos (id_venta, id_periferico, cantidad
 
 --  Consulta Detalles de productos todos juntos
 -- detalles producto
+CREATE VIEW view_ventas_completas AS
 SELECT
     c.nombre_cliente,
     v.fecha_venta,
@@ -150,6 +151,11 @@ JOIN clientes c ON v.id_cliente = c.id_cliente
 JOIN perifericos pe ON dvp2.id_periferico = pe.id_periferico
 
 ORDER BY nombre_cliente, fecha_venta, producto;
+
+
+--
+
+SELECT * FROM view_ventas_completas;
 
 -- consulta de todos los porductos y detalles
 SELECT 
